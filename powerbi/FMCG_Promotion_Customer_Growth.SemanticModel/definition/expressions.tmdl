@@ -1,4 +1,4 @@
-expression DataFolderPath = "C:\path\to\fmcg-promotion-causal-analytics\data\powerbi_exports" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression DataFolderPath = "C:\path\to\fmcg-promotion-decision-analytics\data\powerbi_exports" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: 2be3de16-9b02-449f-b305-521367e2f223
 
 	annotation PBI_ResultType = Text

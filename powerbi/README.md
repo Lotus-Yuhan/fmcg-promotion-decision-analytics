@@ -21,7 +21,7 @@ Power BI Desktop, then choose **Refresh**.
 - `observed_behavior`: descriptive customer, sales and coupon measures.
 - `quasi_experimental_estimate`: matched Difference-in-Differences estimates.
 - `assumption_only_scenario`: budget and ROI sensitivities using assumed costs,
-  gross margin and panel-to-total multipliers.
+  gross margin and panel-to-total-sales multipliers.
 
 Raw Dunnhumby files and household-level local analytical exports remain excluded
 from redistribution under the repository data-use policy.

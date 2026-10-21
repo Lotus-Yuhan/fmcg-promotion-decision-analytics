@@ -1,4 +1,4 @@
-# FMCG Promotion Effectiveness & Customer Growth Analytics
+# FMCG Promotion Decision Analytics
 
 > A validated portfolio project that extends a retail revenue-growth baseline into a reproducible SQL/Python workflow for customer segmentation, quasi-experimental promotion evaluation and budget decisions.
 
@@ -7,6 +7,15 @@
 ![BigQuery](https://img.shields.io/badge/BigQuery-SQL%20layer-4285F4?logo=googlebigquery&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![License](https://img.shields.io/badge/code-MIT-green)
+
+## TL;DR
+
+- **$8.06M** in observed store sales, including **$661K** in beverages; carbonated soft drinks and juice contribute 82% of beverage revenue.
+- Across **423 matched promotion events**, the exposure-week effect is **+0.36 units per product-store event** (95% cluster-bootstrap CI: **+0.14 to +0.65**, p = **0.007**).
+- **45.2%** of households in the High-Value Frequent K-Means segment generate **79.0%** of observed whole-store revenue; targeted coupon-redemption penetration is **12.33%**.
+- Under the default cost and margin assumptions, break-even requires an approximately **30.5x panel-to-total-sales multiplier**, supporting controlled tests rather than immediate broad scaling.
+
+![Power BI Customer Growth and Segmentation dashboard](docs/assets/powerbi_customer_growth_segmentation.png)
 
 ## Project Positioning
 
@@ -39,7 +48,7 @@ for the implementation and release record, and
 | Cohort retention analysis | Complete | Censoring-aware long table, matrices, charts and checks |
 | K-Means segmentation and stability checks | Complete | Model selection, seed/time-window stability, profiles and checks |
 | Matching, DiD and event study | Complete | 423 matched events, balance, pre-trend and placebo evidence |
-| Commercial decision and ROI scenario layer | Complete | Coupon, category, SKU, KPI and assumption tables |
+| Commercial decision and ROI scenario layer | Complete | Coupon, category, segment, KPI and assumption tables |
 | Power BI decision dashboard | Complete | Four-page PBIP report in `powerbi/` |
 
 ## Business Question
@@ -106,6 +115,12 @@ Selected descriptive findings:
   behavioural proxy based on top-quartile discount-basket rate and at-least-
   median shopping frequency.
 
+`Champions` is an RFM lifecycle segment, while `High-Value Loyal` is a separate
+action-oriented persona. Each taxonomy is internally mutually exclusive, but
+the two taxonomies overlap and their percentages must not be added. In the
+validated local Customer 360 table, all 506 Champions are included among the
+677 High-Value Loyal households.
+
 These labels describe observed behaviour within this retailer and time window.
 In particular, promotion-oriented behaviour is not proof of underlying price
 sensitivity or a causal promotion response.
@@ -134,7 +149,9 @@ reconciliation. Only four cohorts contain at least 30 households; seven tiny
 later cohorts remain in the audit table but are excluded from visual comparison.
 
 Across comparable non-P00 cohorts, approximately **81.1%** of households remain
-active at cohort age 12. Customer retention is stable near 80% after the initial
+active at cohort age 12. P00 is the left-censored group whose first observed
+purchase occurs in the dataset's opening period and is not treated as a verified
+new-customer cohort. Customer retention is stable near 80% after the initial
 drop, consistent with the dataset's frequent-shopper sampling frame.
 
 The unadjusted revenue index exceeds 100%, but this is not presented as organic
@@ -224,8 +241,8 @@ The product-level pre-trend slope test (p=0.442) and pre-period placebo
 (p=0.335) do not indicate a systematic pre-treatment divergence.
 
 The matched DiD estimate is approximately **+0.36 units** per product-store
-event (95% cluster-bootstrap CI: +0.14 to +0.65) and **+$0.55 revenue**
-(95% CI: +$0.19 to +$0.98) in the exposure week. The relative estimate is about
+event (95% cluster-bootstrap CI: +0.14 to +0.65, p = 0.007) and **+$0.55
+revenue** (95% CI: +$0.19 to +$0.98) in the exposure week. The relative estimate is about
 45%, but this reflects a low product-store weekly baseline; the modest absolute
 increment is more useful for budget decisions. The estimate remains positive
 after outlier winsorisation (+0.25 units) and under a stricter matching-distance
@@ -276,10 +293,10 @@ as needing more causal evidence rather than being ranked using descriptive lift
 alone.
 
 The ROI table contains 243 explicitly hypothetical combinations of causal
-effect case, margin, execution cost, panel-to-total scaling and budget. With the
-base revenue estimate, 30% margin and $5 cost per event, the required
-panel-to-total multiplier is approximately 30.5 just to break even. This is an
-assumption threshold, not an observed ROI.
+effect case, margin, execution cost, panel-to-total-sales scaling and budget.
+With the base revenue estimate, 30% margin and $5 cost per event, the required
+panel-to-total-sales multiplier is approximately 30.5 just to break even. This
+is an assumption threshold, not an observed ROI.
 
 ![Coupon campaign penetration](outputs/charts/coupon_campaign_penetration.png)
 
@@ -311,11 +328,14 @@ then refresh.
 | Promotion Incrementality | How much lift is plausibly caused by the promotion? | Matched DiD (quasi-experimental) |
 | Budget Scenario Planner | Under which cost, margin and scale assumptions does a promotion pay back? | Assumption-only scenario |
 
-Headline story: merchandising adds **+0.36 units (+45%) per product-store
-event** (95% CI 0.14-0.65, p = 0.007), but under default cost and margin
-assumptions a promotion needs roughly **30x panel-to-store scale** to break
-even. The recommendation is a controlled expansion test in carbonated soft
-drinks and juice rather than an immediate budget increase.
+Headline story: merchandising adds **+0.36 units per product-store event**
+(95% cluster-bootstrap CI: +0.14 to +0.65, p = 0.007). The corresponding +45%
+relative estimate is contextual only because the product-store weekly baseline
+is low; the absolute effect is used for budgeting. Under the default cost and
+margin assumptions, break-even requires an approximately **30.5x
+panel-to-total-sales multiplier**. The recommendation is a controlled expansion
+test in carbonated soft drinks and juice rather than an immediate budget
+increase.
 
 Every page carries an evidence badge so observed facts, causal estimates and
 ROI assumptions are never presented as the same kind of number. Metric and
@@ -335,7 +355,7 @@ the `asia-southeast1` region. All source-contract and key-quality checks passed,
 and the final cloud KPI table reconciled to the local Python and Power BI
 outputs. See [`outputs/validation/bigquery_cloud_run.md`](outputs/validation/bigquery_cloud_run.md).
 
-This layer intentionally does not calculate profit or claim randomized causal
+This layer intentionally does not calculate profit or claim randomised causal
 effects. Actual cost and margin are unavailable, and the matched event panel is
 quasi-experimental evidence.
 
@@ -343,13 +363,13 @@ quasi-experimental evidence.
 
 - Descriptive promotion lift is not presented as a causal estimate.
 - A causal interpretation requires credible treatment-control comparability, parallel trends and robustness evidence.
-- Coupon redemption is a post-treatment customer choice and will not be used naively as the treatment definition.
-- Complete product cost and promotion execution cost are unavailable; profit and ROI will therefore be shown only as sensitivity scenarios.
+- Coupon redemption is a post-treatment customer choice and is not used naively as the treatment definition.
+- Complete product cost and promotion execution cost are unavailable; profit and ROI are therefore shown only as sensitivity scenarios.
 - Demographic profiling is limited because demographics are available for only part of the household panel.
 
-## Imported Baseline
+## Independently Reproduced Baseline
 
-The source project currently contains:
+The reproduced baseline workflow contains:
 
 - Python cleaning and transformation modules in `src/`;
 - narrative notebooks in `notebooks/`;
@@ -357,18 +377,21 @@ The source project currently contains:
 - charts and presentation assets in `outputs/`;
 - a presentation-visual generator in `scripts/`.
 
-The baseline repository reports results such as beverage revenue, promotion share, product lift and household segment summaries. These are inherited reference outputs and are **not yet presented as independently reproduced results in this portfolio**.
+The baseline workflow was independently reproduced against the current official
+data release. Its beverage revenue, promotion share, descriptive product lift
+and household segment summaries were reconciled before being used by the
+extensions above; see the status table and validation outputs.
 
 ## Repository Structure
 
 ```text
-fmcg-promotion-causal-analytics/
+fmcg-promotion-decision-analytics/
 ├── data/
 │   ├── raw/                        # Local only; not committed
 │   ├── processed/                  # Regenerable intermediates
 │   ├── local_exports/              # Local household-level Power BI inputs
 │   └── powerbi_exports/            # Reviewable aggregate outputs
-├── docs/                           # Data dictionaries and method notes
+├── docs/                           # Data dictionaries, method notes and dashboard preview
 ├── notebooks/                      # Baseline narrative notebooks
 ├── outputs/                        # Charts, validation and presentation assets
 ├── powerbi/                        # PBIP report + TMDL semantic model
@@ -381,12 +404,12 @@ fmcg-promotion-causal-analytics/
 └── README.md
 ```
 
-Planned additions include `tests/` and `reports/` directories.
-
-## Running the Imported Baseline
+## Running the Reproduced Baseline
 
 The imported baseline was reproduced locally against the current official data
 release. Raw and regenerable household-level data remain local.
+
+Use Python **3.10 or later** in a virtual environment:
 
 ```powershell
 pip install -r requirements.txt
@@ -402,7 +425,7 @@ Before running, download the Complete Journey CSV files and place them in `data/
 
 ## Portfolio Evidence Standard
 
-A feature will be described as complete only when the repository contains:
+A feature is described as complete only when the repository contains:
 
 - runnable code or SQL;
 - input and output definitions;
@@ -419,6 +442,8 @@ For full details, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Portfolio Author
 
-**Lotus-Yuhan**
+**Yuhan Wang (Lotus-Yuhan)**
+
+GitHub: [@Lotus-Yuhan](https://github.com/Lotus-Yuhan)
 
 Target roles: Data Analyst, Business Analyst and Consumer Insights Analyst.

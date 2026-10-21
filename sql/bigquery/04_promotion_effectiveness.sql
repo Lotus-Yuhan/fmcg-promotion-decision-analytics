@@ -1,6 +1,6 @@
 -- Promotion effectiveness starts from the matched event panel created by the
 -- documented Python matching workflow. SQL summarizes effects; it does not
--- claim that observational promotion flags are randomized treatment.
+-- claim that observational promotion flags are randomised treatment.
 
 CREATE OR REPLACE TABLE `fmcg_analytics.mart_promotion_event_study` AS
 WITH weekly AS (

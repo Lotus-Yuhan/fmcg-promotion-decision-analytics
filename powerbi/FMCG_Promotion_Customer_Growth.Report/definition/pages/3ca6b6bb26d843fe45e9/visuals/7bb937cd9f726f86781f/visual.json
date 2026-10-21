@@ -258,7 +258,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Panel Multiplier'"
+                  "Value": "'Panel-to-Total-Sales Multiplier'"
                 }
               }
             },

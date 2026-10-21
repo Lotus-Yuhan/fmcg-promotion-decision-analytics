@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Pre-trend p-value = 0.442. This does not reject parallel trends, but it does not prove them. Results remain quasi-experimental rather than randomized.",
+                    "value": "Pre-trend p-value = 0.442. This does not reject parallel trends, but it does not prove them. Results remain quasi-experimental rather than randomised.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "10pt",

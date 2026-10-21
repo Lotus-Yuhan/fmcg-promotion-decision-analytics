@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Beverages are 8.2% of store sales; carbonated soft drinks and juice make up 82% of beverage revenue. Merchandising lifts units by +0.36 per event (+45% vs pre-period, p=0.007), but at default cost and margin it needs ~30x panel-to-store scale to break even. Recommendation: run controlled expansion tests in CSD and juice before scaling spend.",
+                    "value": "Beverages are 8.2% of observed store sales. The matched merchandising effect is +0.36 units per product-store event (95% CI +0.14 to +0.65; p=0.007). Under default cost and margin assumptions, break-even requires a ~30.5x panel-to-total-sales multiplier. Test CSD and juice before scaling spend.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "10pt",

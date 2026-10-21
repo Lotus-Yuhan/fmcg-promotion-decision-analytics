@@ -307,7 +307,7 @@ def build_roi_scenarios() -> pd.DataFrame:
                                 "break_even_panel_to_total_multiplier": break_even_multiplier,
                                 "evidence_type": "assumption_only_scenario",
                                 "decision_warning": (
-                                    "Not observed ROI: cost, margin and panel-to-total multiplier are assumptions"
+                                    "Not observed ROI: cost, margin and panel-to-total-sales multiplier are assumptions"
                                 ),
                             }
                         )

@@ -45,7 +45,7 @@ Final `mart_executive_kpis` reconciliation:
 
 - Sales, customer and coupon metrics are observed behavior.
 - K-Means segment labels are model-based assignments.
-- Matched promotion effects are quasi-experimental estimates, not randomized
+- Matched promotion effects are quasi-experimental estimates, not randomised
   trial results.
 - Profit and ROI remain assumption-only scenarios because actual gross margin
   and execution-cost inputs are unavailable.

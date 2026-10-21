@@ -51,8 +51,16 @@ The public portfolio must not contain:
 - The five tracked notebooks contain no executed cells or embedded outputs.
 - The current-tree pattern scan found no private keys, API keys, passwords or contributor-specific absolute paths.
 - Power BI currently loads only approved aggregate CSV inputs.
+- `data/powerbi_exports/` contains 15 aggregate CSVs. The largest has 243
+  scenario rows; none contains `household_key`, `product_id`, `store_id`,
+  `basket_id`, a SKU identifier or transaction-level records.
+- `household_segments.csv` contains four segment-level rows, not household-level
+  records; `category_decision_scorecard.csv` contains seven category-level rows
+  and product counts rather than product identifiers.
 - Public-facing Markdown documentation uses English names and content, and its
   local links resolve.
+- The GitHub About description and six portfolio topics are configured while
+  the repository remains private.
 - Current tracked files are small; no unexpectedly large repository object is required for the clean snapshot.
 - The independently copied clean candidate contains none of the forbidden paths and no CSV headed by `household_key`, `product_id`, `store_id` or `basket_id`.
 

@@ -84,7 +84,7 @@ are not mixed:
    support and a distance threshold.
 3. Ran matched Difference-in-Differences, an event study, product-cluster
    bootstrap inference, pre-trend checks and placebo tests.
-4. Labelled the result as quasi-experimental rather than randomized evidence.
+4. Labelled the result as quasi-experimental rather than randomised evidence.
 
 ### Stage F: Power BI decision report
 
@@ -174,7 +174,8 @@ The cloud layer was completed on 2026-10-21:
 - Under the default point-estimate, 10x scale, 30% margin, $5 event cost and
   $1,000 budget assumptions, net contribution is approximately **-$671.99** and
   ROI is approximately **-67.2%**.
-- Break-even requires a panel-to-store multiplier of approximately **30.5x**.
+- Break-even requires a panel-to-total-sales multiplier of approximately
+  **30.5x**.
 - Actual margin, execution cost and full-store scaling data are unavailable.
   This is therefore an assumption stress test, not evidence of realized loss.
 - The decision recommendation is to run controlled tests in carbonated soft

@@ -78,7 +78,7 @@ coverage factor is available. The 243-row scenario table therefore varies:
 - assumed test budget: $1,000, $2,500 or $5,000.
 
 Every row is labelled `assumption_only_scenario`. The most useful output is the
-break-even panel-to-total multiplier. For example, using the base causal
+break-even panel-to-total-sales multiplier. For example, using the base causal
 revenue estimate, 30% margin and $5 event cost requires a multiplier of about
 30.5 merely to break even. This is a threshold for decision discussion, not a
 forecast.

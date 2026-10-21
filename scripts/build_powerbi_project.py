@@ -400,7 +400,7 @@ def build_semantic_model() -> None:
     # DataFolderPath parameter in Power BI Desktop before refreshing.
     data_path = os.environ.get(
         "FMCG_POWERBI_DATA_PATH",
-        r"C:\path\to\fmcg-promotion-causal-analytics\data\powerbi_exports",
+        r"C:\path\to\fmcg-promotion-decision-analytics\data\powerbi_exports",
     ).replace('"', '""')
     expressions = (
         f'expression DataFolderPath = "{data_path}" '
@@ -924,7 +924,7 @@ def build_pages() -> list[tuple[str, str, list[dict]]]:
     p1 += insight_box(
         "p1-takeaway",
         "MANAGEMENT TAKEAWAY",
-        "Beverages contribute 8.2% of observed store sales. Carbonated soft drinks and juice account for most beverage revenue, while campaign redemption remains modest and uneven.",
+        "Beverages are 8.2% of observed store sales. The matched merchandising effect is +0.36 units per product-store event (95% CI +0.14 to +0.65; p=0.007). Under default cost and margin assumptions, break-even requires a ~30.5x panel-to-total-sales multiplier. Test CSD and juice before scaling spend.",
         24, 500, 752, 126, 30, accent=PALETTE["teal"], background=PALETTE["teal_soft"],
     )
     p1 += insight_box(
@@ -991,7 +991,7 @@ def build_pages() -> list[tuple[str, str, list[dict]]]:
     p3 += insight_box(
         "p3-caveat",
         "INTERPRETATION BOUNDARY",
-        "Pre-trend p-value = 0.442. This does not reject parallel trends, but it does not prove them. Results remain quasi-experimental rather than randomized.",
+        "Pre-trend p-value = 0.442. This does not reject parallel trends, but it does not prove them. Results remain quasi-experimental rather than randomised.",
         792, 550, 464, 116, 33, accent=PALETTE["orange"], background=PALETTE["orange_soft"],
     )
     p3.append(textbox("p3-footnote", "Source: dunnhumby The Complete Journey | 423 matched isolated merchandising events | Event window: weeks -4 to +4", 24, 690, 1232, 20, 40, size=8, color=PALETTE["muted"]))
@@ -1013,12 +1013,12 @@ def build_pages() -> list[tuple[str, str, list[dict]]]:
         # selected value and scrollbar. The previous 76 px height clipped the
         # selected values against the charts below in Power BI Desktop.
         slicer("p4-effect", "ScenarioEffect", "label", 24, 198, 260, 100, 20, "Effect Case"),
-        slicer("p4-multiplier", "MultiplierParameter", "label", 300, 198, 196, 100, 21, "Panel Multiplier"),
+        slicer("p4-multiplier", "MultiplierParameter", "label", 300, 198, 196, 100, 21, "Panel-to-Total-Sales Multiplier"),
         slicer("p4-margin", "MarginParameter", "label", 512, 198, 220, 100, 22, "Gross Margin"),
         slicer("p4-cost", "CostParameter", "label", 748, 198, 220, 100, 23, "Cost per Event"),
         slicer("p4-budget", "BudgetParameter", "label", 984, 198, 272, 100, 24, "Budget"),
         chart("p4-segment-coupon", "barChart", "Coupon Redemption by Customer Segment", "CouponSegments", "segment_name", "KMeans Coupon Penetration", 24, 312, 500, 254, 30, sort_desc=True, accent=PALETTE["orange"]),
-        chart("p4-roi-multiplier", "lineChart", "ROI Sensitivity to Panel Multiplier (0% Reference Line)", "MultiplierAxis", "axis_multiplier", ["Sensitivity ROI", "Zero ROI"], 540, 312, 716, 254, 31, accent=PALETTE["blue"]),
+        chart("p4-roi-multiplier", "lineChart", "ROI vs Panel-to-Total-Sales Multiplier (break-even where lines cross)", "MultiplierAxis", "axis_multiplier", ["Sensitivity ROI", "Zero ROI"], 540, 312, 716, 254, 31, accent=PALETTE["blue"]),
     ]
     p4 += insight_box(
         "p4-warning",
@@ -1119,7 +1119,7 @@ Power BI Desktop, then choose **Refresh**.
 - `observed_behavior`: descriptive customer, sales and coupon measures.
 - `quasi_experimental_estimate`: matched Difference-in-Differences estimates.
 - `assumption_only_scenario`: budget and ROI sensitivities using assumed costs,
-  gross margin and panel-to-total multipliers.
+  gross margin and panel-to-total-sales multipliers.
 
 Raw Dunnhumby files and household-level local analytical exports remain excluded
 from redistribution under the repository data-use policy.

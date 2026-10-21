@@ -91,7 +91,7 @@ result.
 ## Evidence boundary
 
 - Transaction, customer and coupon metrics are observed behavior.
-- Matched event-study metrics are quasi-experimental estimates, not randomized
+- Matched event-study metrics are quasi-experimental estimates, not randomised
   trial results.
 - ROI and profit are excluded because actual margin and execution-cost inputs
   are unavailable; those numbers remain assumption-only Power BI scenarios.
