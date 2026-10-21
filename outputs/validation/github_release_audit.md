@@ -3,14 +3,12 @@
 ## Audit metadata
 
 - Audit date: 2026-10-21
-- Local branch: `feature/portfolio-rebuild`
-- Existing remote repository: `Lotus-Yuhan/fmcg-promotion-causal-analytics`
-- Remote status after owner action: Private
-- Clean candidate directory: `C:\Users\SWYH\Documents\ChatGPT\fmcg-promotion-decision-analytics`
-- Clean candidate size: 201 files, approximately 3.65 MB
-- Clean candidate pre-release Git state: new `main` branch, zero inherited commits; no remote configured at audit time
-- New empty private repository: `Lotus-Yuhan/fmcg-promotion-decision-analytics`
-- Recommended release method: new clean public repository from the sanitised current snapshot
+- Local branch: `main`
+- Original working repository: private archive retained separately
+- Current private repository: `Lotus-Yuhan/fmcg-promotion-decision-analytics`
+- Release structure: clean `main` history with no inherited commits
+- Initial private push: completed on 2026-10-21
+- Recommended release method: review this clean private release candidate before any visibility change
 
 ## Public release boundary
 
@@ -53,7 +51,8 @@ The public portfolio must not contain:
 - The five tracked notebooks contain no executed cells or embedded outputs.
 - The current-tree pattern scan found no private keys, API keys, passwords or contributor-specific absolute paths.
 - Power BI currently loads only approved aggregate CSV inputs.
-- Markdown links in the README and Chinese project log resolve locally.
+- Public-facing Markdown documentation uses English names and content, and its
+  local links resolve.
 - Current tracked files are small; no unexpectedly large repository object is required for the clean snapshot.
 - The independently copied clean candidate contains none of the forbidden paths and no CSV headed by `household_key`, `product_id`, `store_id` or `basket_id`.
 
@@ -69,9 +68,10 @@ Before any public push:
 2. [x] Copy only the sanitised current snapshot; do not copy the old `.git` directory.
 3. [x] Initialise a new Git history with zero inherited commits.
 4. [x] Run the privacy, quality, SQL, Python and link audits against the clean candidate.
-5. [ ] Obtain owner confirmation of the first-commit file manifest.
-6. [ ] Create the first local commit and push it to the new repository while Private.
-7. [ ] Inspect the GitHub file list and README rendering.
+5. [x] Obtain owner confirmation of the first-commit file manifest.
+6. [x] Create the first local commit and push it to the new repository while Private.
+7. [x] Inspect the GitHub file list and README rendering; correct the public-facing English documentation.
 8. [ ] Obtain final owner confirmation before changing the new repository to Public.
 
-No commit, push, force-push, history rewrite or visibility change is authorised by this audit alone.
+No force-push, history rewrite or repository-visibility change is authorised by
+this audit alone.

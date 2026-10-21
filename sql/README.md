@@ -1,6 +1,6 @@
 # BigQuery SQL Analytics Layer
 
-Chinese step-by-step console guide: [`BigQuery_中文操作步骤.md`](BigQuery_中文操作步骤.md)
+Step-by-step console guide: [BIGQUERY_CONSOLE_GUIDE.md](BIGQUERY_CONSOLE_GUIDE.md)
 
 Cloud execution status: all six scripts were run successfully in BigQuery
 Sandbox on 2026-10-21 (`asia-southeast1`). The final KPI table reconciled to

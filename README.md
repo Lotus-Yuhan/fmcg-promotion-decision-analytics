@@ -1,8 +1,8 @@
 # FMCG Promotion Effectiveness & Customer Growth Analytics
 
-> A portfolio project in progress: extending a retail revenue-growth baseline into a reproducible SQL/Python workflow for customer segmentation, causal promotion evaluation and budget decisions.
+> A validated portfolio project that extends a retail revenue-growth baseline into a reproducible SQL/Python workflow for customer segmentation, quasi-experimental promotion evaluation and budget decisions.
 
-![Status](https://img.shields.io/badge/status-work%20in%20progress-orange)
+![Status](https://img.shields.io/badge/status-validated%20private%20release%20candidate-2E7D32)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 ![BigQuery](https://img.shields.io/badge/BigQuery-SQL%20layer-4285F4?logo=googlebigquery&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20dashboard-F2C811?logo=powerbi&logoColor=black)
@@ -22,15 +22,15 @@ The imported baseline provides a Python workflow for beverage filtering, descrip
 - a redesigned four-page Power BI decision dashboard.
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the delivery plan,
-[`docs/项目开发日志与GitHub发布指南.md`](docs/项目开发日志与GitHub发布指南.md)
-for the Chinese build log and release checklist, and
+[PROJECT_DEVELOPMENT_LOG.md](docs/PROJECT_DEVELOPMENT_LOG.md)
+for the implementation and release record, and
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution.
 
 ## Current Status
 
 | Workstream | Status | Evidence |
 |---|---|---|
-| Import source baseline and preserve history | Complete | `upstream/main` retained |
+| Baseline provenance and clean release snapshot | Complete | Project plan, third-party notice and fresh repository history |
 | Attribution and project scope | Complete | Project plan and third-party notice |
 | Obtain raw dunnhumby data | Complete locally | Raw files are intentionally not distributed |
 | Reproduce and validate baseline results | Complete locally | End-to-end pipeline executed; current-schema fix recorded |
