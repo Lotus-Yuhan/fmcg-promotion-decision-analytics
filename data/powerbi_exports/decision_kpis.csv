@@ -1,0 +1,11 @@
+metric,value,unit,evidence_type,definition
+total_store_observed_sales,8057463.08,dollars,observed_behavior,sum of observed transaction sales value
+beverage_observed_sales,661332.87,dollars,observed_behavior,sum of observed beverage sales value
+beverage_share_of_store_sales,0.08207705867638924,share,observed_behavior,beverage observed sales / total store observed sales
+target_household_coupon_redemption_penetration,0.12333518312985571,share,observed_behavior,redeemed targeted household-campaign pairs / all targeted pairs
+coupon_campaigns,30.0,count,observed_behavior,campaigns with targeting and coupon definitions
+matched_promotion_events,423.0,count,quasi_experimental_estimate,events retained after matching and common-support rules
+incremental_units_per_merchandising_event,0.3611111111111111,units,quasi_experimental_estimate,matched DiD same-week estimate
+incremental_revenue_per_merchandising_event,0.5466784869976361,dollars,quasi_experimental_estimate,matched DiD same-week estimate in household panel
+high_value_frequent_household_share,0.4516,share,observed_behavior,K-Means segment household share
+high_value_frequent_revenue_share,0.7896,share,observed_behavior,K-Means segment observed revenue share

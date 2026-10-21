@@ -1,0 +1,82 @@
+table PromotionSummary
+	lineageTag: 089e3fee-03ef-451d-ab7a-d92aa3773ea2
+
+	column metric
+		dataType: string
+		lineageTag: 86f0feb7-d559-4f15-bd92-0ae433dcfbfe
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: 58e1dded-061a-4c2d-8a39-60599c99ac86
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ci_low
+		dataType: double
+		lineageTag: cf8d8817-3968-4a7b-ba30-479c508392db
+		summarizeBy: sum
+		sourceColumn: ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ci_high
+		dataType: double
+		lineageTag: d8eaa68a-251f-4fc0-bcc8-97925aea6a6a
+		summarizeBy: sum
+		sourceColumn: ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column std_error
+		dataType: double
+		lineageTag: 2ae6d6f5-d698-4b99-b8cc-6b2e0354b361
+		summarizeBy: sum
+		sourceColumn: std_error
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p_value
+		dataType: double
+		lineageTag: 0cc6e38d-d1d1-4f7f-9be5-b58eae76c1c7
+		summarizeBy: sum
+		sourceColumn: p_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: 421cafc3-3d7f-450b-a8eb-5b900ed782c6
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PromotionSummary = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\promotion_causal_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"metric", type text}, {"value", type number}, {"ci_low", type number}, {"ci_high", type number}, {"std_error", type number}, {"p_value", type number}, {"unit", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

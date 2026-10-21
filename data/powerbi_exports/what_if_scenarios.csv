@@ -1,0 +1,71 @@
+scenario_id,beverage_category,discount_pct,coupon_applied,baseline_revenue,baseline_units,projected_units,projected_revenue,revenue_delta_pct,notes_label
+0,Carbonated Soft Drinks,0.0,False,391518.31,190698,190698.0,391518.31,0.0,Directional scenario only — not causal
+1,Carbonated Soft Drinks,0.0,True,391518.31,190698,194512.0,395355.19,0.98,Directional scenario only — not causal
+2,Carbonated Soft Drinks,0.05,False,391518.31,190698,223009.7,434964.02,11.1,Directional scenario only — not causal
+3,Carbonated Soft Drinks,0.05,True,391518.31,190698,226823.7,437745.99,11.81,Directional scenario only — not causal
+4,Carbonated Soft Drinks,0.1,False,391518.31,190698,255321.4,471775.87,20.5,Directional scenario only — not causal
+5,Carbonated Soft Drinks,0.1,True,391518.31,190698,259135.4,473502.94,20.94,Directional scenario only — not causal
+6,Carbonated Soft Drinks,0.15,False,391518.31,190698,287633.1,501953.86,28.21,Directional scenario only — not causal
+7,Carbonated Soft Drinks,0.15,True,391518.31,190698,291447.1,502626.03,28.38,Directional scenario only — not causal
+8,Carbonated Soft Drinks,0.2,False,391518.31,190698,319944.9,525498.0,34.22,Directional scenario only — not causal
+9,Carbonated Soft Drinks,0.2,True,391518.31,190698,323758.8,525115.27,34.12,Directional scenario only — not causal
+10,Coffee,0.0,False,64555.48,15206,15206.0,64555.48,0.0,Directional scenario only — not causal
+11,Coffee,0.0,True,64555.48,15206,15510.1,65188.12,0.98,Directional scenario only — not causal
+12,Coffee,0.05,False,64555.48,15206,15556.6,62741.55,-2.81,Directional scenario only — not causal
+13,Coffee,0.05,True,64555.48,15206,15860.7,63294.76,-1.95,Directional scenario only — not causal
+14,Coffee,0.1,False,64555.48,15206,15907.1,60778.8,-5.85,Directional scenario only — not causal
+15,Coffee,0.1,True,64555.48,15206,16211.2,61252.57,-5.12,Directional scenario only — not causal
+16,Coffee,0.15,False,64555.48,15206,16257.7,58667.22,-9.12,Directional scenario only — not causal
+17,Coffee,0.15,True,64555.48,15206,16561.8,59061.55,-8.51,Directional scenario only — not causal
+18,Coffee,0.2,False,64555.48,15206,16608.2,56406.81,-12.62,Directional scenario only — not causal
+19,Coffee,0.2,True,64555.48,15206,16912.4,56721.7,-12.13,Directional scenario only — not causal
+20,Energy/Sports Drinks,0.0,False,24753.33,14647,14647.0,24753.33,0.0,Directional scenario only — not causal
+21,Energy/Sports Drinks,0.0,True,24753.33,14647,14939.9,24995.91,0.98,Directional scenario only — not causal
+22,Energy/Sports Drinks,0.05,False,24753.33,14647,17146.8,27529.16,11.21,Directional scenario only — not causal
+23,Energy/Sports Drinks,0.05,True,24753.33,14647,17439.8,27704.74,11.92,Directional scenario only — not causal
+24,Energy/Sports Drinks,0.1,False,24753.33,14647,19646.7,29882.51,20.72,Directional scenario only — not causal
+25,Energy/Sports Drinks,0.1,True,24753.33,14647,19939.6,29991.09,21.16,Directional scenario only — not causal
+26,Energy/Sports Drinks,0.15,False,24753.33,14647,22146.5,31813.39,28.52,Directional scenario only — not causal
+27,Energy/Sports Drinks,0.15,True,24753.33,14647,22439.5,31854.97,28.69,Directional scenario only — not causal
+28,Energy/Sports Drinks,0.2,False,24753.33,14647,24646.4,33321.8,34.62,Directional scenario only — not causal
+29,Energy/Sports Drinks,0.2,True,24753.33,14647,24939.3,33296.38,34.51,Directional scenario only — not causal
+30,Juice,0.0,False,150768.71,74734,74734.0,150768.71,0.0,Directional scenario only — not causal
+31,Juice,0.0,True,150768.71,74734,76228.7,152246.24,0.98,Directional scenario only — not causal
+32,Juice,0.05,False,150768.71,74734,81830.2,156830.44,4.02,Directional scenario only — not causal
+33,Juice,0.05,True,150768.71,74734,83324.9,158014.04,4.81,Directional scenario only — not causal
+34,Juice,0.1,False,150768.71,74734,88926.5,161460.57,7.09,Directional scenario only — not causal
+35,Juice,0.1,True,150768.71,74734,90421.1,162350.24,7.68,Directional scenario only — not causal
+36,Juice,0.15,False,150768.71,74734,96022.7,164659.1,9.21,Directional scenario only — not causal
+37,Juice,0.15,True,150768.71,74734,97517.4,165254.85,9.61,Directional scenario only — not causal
+38,Juice,0.2,False,150768.71,74734,103118.9,166426.04,10.38,Directional scenario only — not causal
+39,Juice,0.2,True,150768.71,74734,104613.6,166727.86,10.59,Directional scenario only — not causal
+40,Other Beverages,0.0,False,13496.47,6800,6800.0,13496.47,0.0,Directional scenario only — not causal
+41,Other Beverages,0.0,True,13496.47,6800,6936.0,13628.74,0.98,Directional scenario only — not causal
+42,Other Beverages,0.05,False,13496.47,6800,7042.7,13279.35,-1.61,Directional scenario only — not causal
+43,Other Beverages,0.05,True,13496.47,6800,7178.7,13393.3,-0.76,Directional scenario only — not causal
+44,Other Beverages,0.1,False,13496.47,6800,7285.5,13014.05,-3.57,Directional scenario only — not causal
+45,Other Beverages,0.1,True,13496.47,6800,7421.5,13109.68,-2.87,Directional scenario only — not causal
+46,Other Beverages,0.15,False,13496.47,6800,7528.2,12700.57,-5.9,Directional scenario only — not causal
+47,Other Beverages,0.15,True,13496.47,6800,7664.2,12777.89,-5.32,Directional scenario only — not causal
+48,Other Beverages,0.2,False,13496.47,6800,7771.0,12338.91,-8.58,Directional scenario only — not causal
+49,Other Beverages,0.2,True,13496.47,6800,7907.0,12397.92,-8.14,Directional scenario only — not causal
+50,Tea,0.0,False,12336.18,4537,4537.0,12336.18,0.0,Directional scenario only — not causal
+51,Tea,0.0,True,12336.18,4537,4627.7,12457.07,0.98,Directional scenario only — not causal
+52,Tea,0.05,False,12336.18,4537,4544.5,11738.69,-4.84,Directional scenario only — not causal
+53,Tea,0.05,True,12336.18,4537,4635.2,11847.04,-3.97,Directional scenario only — not causal
+54,Tea,0.1,False,12336.18,4537,4552.0,11139.16,-9.7,Directional scenario only — not causal
+55,Tea,0.1,True,12336.18,4537,4642.7,11234.98,-8.93,Directional scenario only — not causal
+56,Tea,0.15,False,12336.18,4537,4559.4,10537.6,-14.58,Directional scenario only — not causal
+57,Tea,0.15,True,12336.18,4537,4650.2,10620.88,-13.9,Directional scenario only — not causal
+58,Tea,0.2,False,12336.18,4537,4566.9,9934.01,-19.47,Directional scenario only — not causal
+59,Tea,0.2,True,12336.18,4537,4657.7,10004.75,-18.9,Directional scenario only — not causal
+60,Water,0.0,False,3904.39,3672,3672.0,3904.39,0.0,Directional scenario only — not causal
+61,Water,0.0,True,3904.39,3672,3745.4,3942.65,0.98,Directional scenario only — not causal
+62,Water,0.05,False,3904.39,3672,5299.4,5353.0,37.1,Directional scenario only — not causal
+63,Water,0.05,True,3904.39,3672,5372.8,5370.06,37.54,Directional scenario only — not causal
+64,Water,0.1,False,3904.39,3672,6926.7,6628.58,69.77,Directional scenario only — not causal
+65,Water,0.1,True,3904.39,3672,7000.2,6624.43,69.67,Directional scenario only — not causal
+66,Water,0.15,False,3904.39,3672,8554.1,7731.12,98.01,Directional scenario only — not causal
+67,Water,0.15,True,3904.39,3672,8627.5,7705.76,97.36,Directional scenario only — not causal
+68,Water,0.2,False,3904.39,3672,10181.4,8660.63,121.82,Directional scenario only — not causal
+69,Water,0.2,True,3904.39,3672,10254.9,8614.06,120.63,Directional scenario only — not causal

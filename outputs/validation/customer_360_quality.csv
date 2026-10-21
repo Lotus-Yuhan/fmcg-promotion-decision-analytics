@@ -1,0 +1,9 @@
+check_name,observed_value,expected_value,passed
+row_count_matches_source_households,2500.0,2500,True
+household_key_is_unique,2500.0,2500,True
+household_key_missing_count,0.0,0,True
+negative_recency_count,0.0,0,True
+nonpositive_frequency_count,0.0,0,True
+revenue_reconciliation_difference,0.0,0,True
+rfm_segment_missing_count,0.0,0,True
+demographic_household_coverage,801.0,informational,True

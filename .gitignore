@@ -1,0 +1,53 @@
+# ---- Raw / licensed source data (Dunnhumby Complete Journey) ----
+# Not redistributed. Download from the source (see README) into data/raw/
+data/raw/
+archive.zip
+
+# ---- Large / regenerable intermediates ----
+# Parquet intermediates are rebuilt by the notebooks/src pipeline.
+data/processed/
+# Household-level analytical exports are local inputs for Power BI and are not
+# redistributed. Only aggregate summaries are committed.
+data/local_exports/
+# 17MB transaction-level fact table (regenerable; too heavy for the repo).
+data/powerbi_exports/fact_transactions_beverage.csv
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ---- Tooling / local ----
+.claude/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+学习标注版/
+
+# ---- Power BI local artifacts ----
+# PBIP/PBIR/TMDL source files are tracked; binary Desktop files and caches are not.
+powerbi/*.pbix
+powerbi/**/.pbi/
+
+# Household-level export: not redistributed under the dunnhumby data-use terms.
+data/powerbi_exports/dim_households.csv
+
+# Source-derived product/SKU-level extracts are local analytical inputs, not
+# public portfolio outputs. Publish category/campaign/segment aggregates only.
+data/powerbi_exports/dim_products_beverage.csv
+data/powerbi_exports/promotion_performance.csv
+data/powerbi_exports/sku_sales_contribution.csv
+
+# SKU-ranking charts expose source product identifiers; retain locally only.
+outputs/charts/top20_lift.png
+outputs/charts/top20_lift_products.png
+
+# Local Power BI review screenshots and backups
+outputs/powerbi_preview/
+outputs/powerbi_preview_corrected/
+powerbi_backup_*/

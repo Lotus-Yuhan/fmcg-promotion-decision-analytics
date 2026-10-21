@@ -1,0 +1,10 @@
+check_name,observed_value,expected_value,passed
+matched_event_count,423.0,>=300,True
+unique_matched_products,139.0,>=30,True
+complete_nine_week_windows,3807.0,3807,True
+duplicate_event_ids,0.0,0,True
+control_equals_treated_pair,0.0,0,True
+max_match_distance,1.9932912036642119,<=2.0,True
+max_abs_smd_after_matching,0.0987124022792142,<=0.10,True
+parallel_pretrend_p_value,0.44238938502513064,>=0.05,True
+preperiod_placebo_p_value,0.335447751367975,>=0.05,True

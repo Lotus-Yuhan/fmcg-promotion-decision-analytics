@@ -1,0 +1,376 @@
+cultureInfo zh-CN
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "reportmeasures.beverage_sales_kpi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Beverage Sales KPI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Beverage Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.total_store_sales_kpi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Total Store Sales KPI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Store Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.household_count_kpi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Household Count KPI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Household Count": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.high_value_revenue_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "High Value Revenue Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "High Value Revenue Share (Whole Store)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.incremental_units_standard_error": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Incremental Units Standard Error"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "reportmeasures.incremental_units_95_ci": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Incremental Units 95% CI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "95% Confidence Interval": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.incremental_units_pvalue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Incremental Units p-value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p-value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.selected_breakeven_multiplier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Selected Break-even Multiplier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Break-even Multiplier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "budgetparameter.label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "BudgetParameter",
+			          "ConceptualProperty": "label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Budget": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "scenarioeffect.label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ScenarioEffect",
+			          "ConceptualProperty": "label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Effect Case": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "costparameter.label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CostParameter",
+			          "ConceptualProperty": "label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cost per Event": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "multiplierparameter.label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MultiplierParameter",
+			          "ConceptualProperty": "label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Panel Multiplier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "marginparameter.label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MarginParameter",
+			          "ConceptualProperty": "label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gross Margin": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.coupon_redemption": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Coupon Redemption"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Targeted HH Coupon Redemption": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.incremental_revenue_per_event": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Incremental Revenue per Event"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Incremental Revenue per Event": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.projected_incremental_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Projected Incremental Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Projected Incremental Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.sensitivity_roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Sensitivity ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Scenario ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "reportmeasures.zero_roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ReportMeasures",
+			          "ConceptualProperty": "Zero ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Break-even (0% ROI)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json

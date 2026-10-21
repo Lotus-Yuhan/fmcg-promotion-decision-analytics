@@ -1,0 +1,34 @@
+model Model
+	culture: zh-CN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["DecisionKPIs","CohortRetention","CohortOverview","ClusterProfile","CategoryScorecard","CouponCampaigns","CouponSegments","PromotionSummary","PromotionEventStudy","ROIScenarios","ScenarioEffect","MultiplierParameter","MarginParameter","CostParameter","BudgetParameter","MultiplierAxis","ReportMeasures","DataFolderPath"]
+
+ref table DecisionKPIs
+ref table CohortRetention
+ref table CohortOverview
+ref table ClusterProfile
+ref table CategoryScorecard
+ref table CouponCampaigns
+ref table CouponSegments
+ref table PromotionSummary
+ref table PromotionEventStudy
+ref table ROIScenarios
+ref table ScenarioEffect
+ref table MultiplierParameter
+ref table MarginParameter
+ref table CostParameter
+ref table BudgetParameter
+ref table MultiplierAxis
+ref table ReportMeasures
+
+ref cultureInfo zh-CN

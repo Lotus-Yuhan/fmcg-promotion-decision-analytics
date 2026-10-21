@@ -1,0 +1,29 @@
+table MultiplierAxis
+	lineageTag: ab2282e5-c2e7-4f8b-a7a1-27ff2091d79d
+
+	column axis_multiplier
+		dataType: double
+		lineageTag: 06a535e7-a5f7-4c94-ba55-55285ec14f99
+		summarizeBy: sum
+		sourceColumn: axis_multiplier
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column axis_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 7533e1fe-fd4c-4c0a-842c-079e0cab585b
+		summarizeBy: sum
+		sourceColumn: axis_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MultiplierAxis = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [axis_multiplier = number, axis_sort = Int64.Type], {{1, 0}, {5, 1}, {10, 2}, {15, 3}, {20, 4}, {25, 5}, {30, 6}, {40, 7}, {50, 8}, {60, 9}})
+				in
+					Source

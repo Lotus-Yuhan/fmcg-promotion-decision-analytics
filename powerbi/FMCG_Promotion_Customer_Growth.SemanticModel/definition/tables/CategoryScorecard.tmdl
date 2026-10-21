@@ -1,0 +1,232 @@
+table CategoryScorecard
+	lineageTag: 35d8bb61-a857-4f12-8a2c-647df315b260
+
+	column beverage_category
+		dataType: string
+		lineageTag: aad1b405-67ec-4ecd-a79f-1af5b51edd19
+		summarizeBy: none
+		sourceColumn: beverage_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_sales_value
+		dataType: double
+		lineageTag: 304c8245-f4ea-4dff-b997-315379ef6b9a
+		summarizeBy: sum
+		sourceColumn: observed_sales_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column observed_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 58f6adc1-11e8-41d8-ab84-a8e138777751
+		summarizeBy: sum
+		sourceColumn: observed_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column households
+		dataType: int64
+		formatString: 0
+		lineageTag: b7182a67-c493-4f81-b79d-e26f39cc7bcd
+		summarizeBy: sum
+		sourceColumn: households
+
+		annotation SummarizationSetBy = Automatic
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: bda7d685-64f1-4f8a-8096-46a2ab9e4784
+		summarizeBy: sum
+		sourceColumn: products
+
+		annotation SummarizationSetBy = Automatic
+
+	column stores
+		dataType: int64
+		formatString: 0
+		lineageTag: 49483426-8128-4a30-8982-73d867be96e2
+		summarizeBy: sum
+		sourceColumn: stores
+
+		annotation SummarizationSetBy = Automatic
+
+	column promo_sales_value
+		dataType: double
+		lineageTag: af6142fa-2141-4611-9a97-090002ea2809
+		summarizeBy: sum
+		sourceColumn: promo_sales_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column merchandising_sales_value
+		dataType: double
+		lineageTag: 67209639-a930-4930-b65a-023a95eaa94c
+		summarizeBy: sum
+		sourceColumn: merchandising_sales_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column coupon_sales_value
+		dataType: double
+		lineageTag: cba84cf2-983b-48ec-a0c4-72204c887770
+		summarizeBy: sum
+		sourceColumn: coupon_sales_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sales_contribution
+		dataType: double
+		lineageTag: 479724ad-39c8-4776-a58c-c8ae52d853ce
+		summarizeBy: sum
+		sourceColumn: sales_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column promo_sales_share
+		dataType: double
+		lineageTag: 423c4db9-2f1b-40ce-b884-ec2a98de879f
+		summarizeBy: sum
+		sourceColumn: promo_sales_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column merchandising_sales_share
+		dataType: double
+		lineageTag: f23e5730-2cdf-4ccf-9705-5e28918f674d
+		summarizeBy: sum
+		sourceColumn: merchandising_sales_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column coupon_sales_share
+		dataType: double
+		lineageTag: 34f117b3-d647-4b4e-b06e-2522b8298ad8
+		summarizeBy: sum
+		sourceColumn: coupon_sales_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column event_count
+		dataType: double
+		lineageTag: b6d027a2-d5e1-40a1-a87a-84a5a9cec05c
+		summarizeBy: sum
+		sourceColumn: event_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_count
+		dataType: double
+		lineageTag: 144b2045-11bd-4796-97ed-cb3c5ebbf46d
+		summarizeBy: sum
+		sourceColumn: product_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column did_units
+		dataType: double
+		lineageTag: e1ac9b31-1bc5-48ea-b048-e7259faef5be
+		summarizeBy: sum
+		sourceColumn: did_units
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column did_units_ci_low
+		dataType: double
+		lineageTag: cafb0dbb-fe84-4711-a5de-a0f1aea455f7
+		summarizeBy: sum
+		sourceColumn: did_units_ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column did_units_ci_high
+		dataType: double
+		lineageTag: 3e65ea94-7adf-4487-919d-aeaf8d61341f
+		summarizeBy: sum
+		sourceColumn: did_units_ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column did_revenue
+		dataType: double
+		lineageTag: b54a1d41-4b71-45b5-86c5-f916e4bb16e8
+		summarizeBy: sum
+		sourceColumn: did_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column causal_evidence_status
+		dataType: string
+		lineageTag: 1f607578-deb8-4a16-be0a-ac90f963b554
+		summarizeBy: none
+		sourceColumn: causal_evidence_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column decision_status
+		dataType: string
+		lineageTag: 86b6cf8b-39c3-4671-a669-ea64e548d248
+		summarizeBy: none
+		sourceColumn: decision_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_metric_label
+		dataType: string
+		lineageTag: b4c2252a-80db-407c-aa49-d54c33a41434
+		summarizeBy: none
+		sourceColumn: observed_metric_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column effect_metric_label
+		dataType: string
+		lineageTag: cbdeb790-d159-4a72-b2a8-441719e8af07
+		summarizeBy: none
+		sourceColumn: effect_metric_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CategoryScorecard = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\category_decision_scorecard.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"beverage_category", type text}, {"observed_sales_value", type number}, {"observed_units", Int64.Type}, {"households", Int64.Type}, {"products", Int64.Type}, {"stores", Int64.Type}, {"promo_sales_value", type number}, {"merchandising_sales_value", type number}, {"coupon_sales_value", type number}, {"sales_contribution", type number}, {"promo_sales_share", type number}, {"merchandising_sales_share", type number}, {"coupon_sales_share", type number}, {"event_count", type number}, {"product_count", type number}, {"did_units", type number}, {"did_units_ci_low", type number}, {"did_units_ci_high", type number}, {"did_revenue", type number}, {"causal_evidence_status", type text}, {"decision_status", type text}, {"observed_metric_label", type text}, {"effect_metric_label", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

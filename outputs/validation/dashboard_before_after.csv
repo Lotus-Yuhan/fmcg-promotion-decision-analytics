@@ -1,0 +1,11 @@
+metric,before,after,reason
+Scenario ROI,-0.10857053839438072,-0.6719929078014184,Old card averaged 243 incompatible scenarios; new value is one coherent default scenario.
+Net Contribution,-307.6165254507455,-671.9929078014184,Old card averaged scenario dollars; new value reconciles to ROI and budget.
+Break-even Multiplier,52.38059079626761,30.487145668014435,"Old card averaged break-even points; new value uses the selected effect, cost and margin."
+Retention at Cohort Age 12,0.7794375,0.8109072375127421,Old value was an unweighted cohort mean including P00; new value weights P01-P03 by cohort size.
+Incremental Units Standard Error,,0.1342239030071232,Product-cluster bootstrap standard error added.
+Incremental Units p-value,,0.0071374192918977,Two-sided normal approximation using the product-cluster bootstrap SE.
+Sensitivity ROI at 1x,-0.9257142115328649,-0.9671992907801419,"New line holds effect, margin, cost and budget fixed; ROI is monotonic in multiplier."
+Sensitivity ROI at 10x,-0.25714211532865067,-0.6719929078014184,"New line holds effect, margin, cost and budget fixed; ROI is monotonic in multiplier."
+Sensitivity ROI at 20x,,-0.34398581560283664,"New line holds effect, margin, cost and budget fixed; ROI is monotonic in multiplier."
+Sensitivity ROI at 25x,0.8571447116783734,-0.17998226950354593,"New line holds effect, margin, cost and budget fixed; ROI is monotonic in multiplier."

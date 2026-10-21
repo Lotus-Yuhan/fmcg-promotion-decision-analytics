@@ -1,0 +1,38 @@
+table BudgetParameter
+	lineageTag: 145c1eda-5bb4-4439-b8d3-e78f54453105
+
+	column label
+		dataType: string
+		lineageTag: ff8969bb-f225-44f2-8366-00296ae95d09
+		summarizeBy: none
+		sourceColumn: label
+		sortByColumn: budget_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_value
+		dataType: double
+		lineageTag: dfab0238-930c-42e3-898d-010407dfabad
+		summarizeBy: sum
+		sourceColumn: budget_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column budget_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: cdb73356-3f73-4ee5-b417-93984df3b619
+		summarizeBy: sum
+		sourceColumn: budget_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BudgetParameter = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [label = text, budget_value = number, budget_sort = Int64.Type], {{"$1,000 (Default)", 1000, 0}, {"$2,500", 2500, 1}, {"$5,000", 5000, 2}})
+				in
+					Source

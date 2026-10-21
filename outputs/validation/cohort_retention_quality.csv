@@ -1,0 +1,10 @@
+check_name,observed_value,expected_value,passed
+cohort_sizes_reconcile_to_households,2500.0,2500,True
+age_zero_retention_equals_one,1.0,1.0,True
+active_households_not_above_cohort_size,0.0,0,True
+retention_rate_within_zero_one,0.0,0,True
+negative_cohort_age_count,0.0,0,True
+revenue_reconciliation_difference,0.0,0,True
+observed_period_count,24.0,24,True
+comparison_eligible_cohort_count,4.0,informational,True
+small_cohort_count,7.0,informational,True

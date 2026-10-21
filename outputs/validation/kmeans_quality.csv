@@ -1,0 +1,10 @@
+check_name,observed_value,expected_value,passed
+household_row_count,2500.0,2500,True
+unique_household_count,2500.0,2500,True
+missing_cluster_labels,0.0,0,True
+cluster_count,3.0,3,True
+smallest_cluster_share,0.1616,>=0.10,True
+profile_households_reconcile,2500.0,2500,True
+profile_revenue_difference,0.0,0,True
+selected_silhouette,0.1745,>=0.15,True
+stability_tests_passed,3.0,3,True

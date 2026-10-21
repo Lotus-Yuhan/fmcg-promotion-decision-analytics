@@ -1,0 +1,96 @@
+table CouponSegments
+	lineageTag: 9be2bd93-801d-4d68-9e9b-fb26758373ac
+
+	column segment_dimension
+		dataType: string
+		lineageTag: 823e7187-6cca-494f-94e6-245fe706d46c
+		summarizeBy: none
+		sourceColumn: segment_dimension
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment_name
+		dataType: string
+		lineageTag: 463d459d-be13-43c2-9eab-250331f456f9
+		summarizeBy: none
+		sourceColumn: segment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column targeted_households
+		dataType: int64
+		formatString: 0
+		lineageTag: 030c705b-0c2b-4556-9e57-1961c1108037
+		summarizeBy: sum
+		sourceColumn: targeted_households
+
+		annotation SummarizationSetBy = Automatic
+
+	column household_campaign_exposures
+		dataType: int64
+		formatString: 0
+		lineageTag: e51d8cfb-db1c-48bb-95a9-9fa6fe3311b4
+		summarizeBy: sum
+		sourceColumn: household_campaign_exposures
+
+		annotation SummarizationSetBy = Automatic
+
+	column redeemed_household_campaigns
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f179ce1-75df-4f41-9e19-a4395deb28aa
+		summarizeBy: sum
+		sourceColumn: redeemed_household_campaigns
+
+		annotation SummarizationSetBy = Automatic
+
+	column redemption_transactions
+		dataType: int64
+		formatString: 0
+		lineageTag: c5fa12fd-d0b1-4559-a38b-1bda33a887e0
+		summarizeBy: sum
+		sourceColumn: redemption_transactions
+
+		annotation SummarizationSetBy = Automatic
+
+	column redemption_penetration
+		dataType: double
+		lineageTag: 06713a40-c576-49f8-bb1a-683147307416
+		summarizeBy: sum
+		sourceColumn: redemption_penetration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column redemptions_per_100_exposures
+		dataType: double
+		lineageTag: 46ded036-7fa6-4e9b-af0b-e16a2f8f55a2
+		summarizeBy: sum
+		sourceColumn: redemptions_per_100_exposures
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evidence_type
+		dataType: string
+		lineageTag: 196bd756-76f0-4f4d-87c0-efc6d456a48d
+		summarizeBy: none
+		sourceColumn: evidence_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CouponSegments = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\coupon_segment_performance.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"segment_dimension", type text}, {"segment_name", type text}, {"targeted_households", Int64.Type}, {"household_campaign_exposures", Int64.Type}, {"redeemed_household_campaigns", Int64.Type}, {"redemption_transactions", Int64.Type}, {"redemption_penetration", type number}, {"redemptions_per_100_exposures", type number}, {"evidence_type", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

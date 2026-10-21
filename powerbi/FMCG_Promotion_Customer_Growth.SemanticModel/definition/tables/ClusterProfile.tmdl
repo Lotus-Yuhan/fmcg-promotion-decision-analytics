@@ -1,0 +1,182 @@
+table ClusterProfile
+	lineageTag: 6628019d-8bed-46a2-a89c-9fac7a49e9e9
+
+	column kmeans_cluster_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7372d10a-9429-4b88-8c4b-185f0b58474d
+		summarizeBy: sum
+		sourceColumn: kmeans_cluster_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column kmeans_segment
+		dataType: string
+		lineageTag: bd7cf187-5728-4372-adbf-9ca42b813b39
+		summarizeBy: none
+		sourceColumn: kmeans_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column household_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 0816a2cd-084f-45f8-b2cd-4fd0460545d0
+		summarizeBy: sum
+		sourceColumn: household_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_revenue
+		dataType: double
+		lineageTag: 04cc3ed5-9012-4c62-8a40-c55afc38ee14
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_recency_days
+		dataType: double
+		lineageTag: d233e38b-c2dc-416a-bd77-157c7f030fe5
+		summarizeBy: sum
+		sourceColumn: avg_recency_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_frequency_baskets
+		dataType: double
+		lineageTag: 70e8779a-91ca-4304-9c21-32add7892d55
+		summarizeBy: sum
+		sourceColumn: avg_frequency_baskets
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_monetary_value
+		dataType: double
+		lineageTag: f7a47af4-52f9-4116-a830-601a57ad6bcc
+		summarizeBy: sum
+		sourceColumn: avg_monetary_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_basket_value
+		dataType: double
+		lineageTag: 12443954-928a-4ed7-8fc3-2393166b413e
+		summarizeBy: sum
+		sourceColumn: avg_basket_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_active_weeks
+		dataType: double
+		lineageTag: 999d1b63-f97d-427e-b4a8-dcb5b64b160b
+		summarizeBy: sum
+		sourceColumn: avg_active_weeks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_purchase_gap_days
+		dataType: double
+		lineageTag: cfae2b12-9bc4-4f33-9c70-56f1e0164322
+		summarizeBy: sum
+		sourceColumn: avg_purchase_gap_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_category_breadth
+		dataType: double
+		lineageTag: b73cd76e-8416-4128-bd95-ce2956308f59
+		summarizeBy: sum
+		sourceColumn: avg_category_breadth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_discount_basket_rate
+		dataType: double
+		lineageTag: 4821fef7-092e-496b-8c9d-3ed1d4d5e83a
+		summarizeBy: sum
+		sourceColumn: avg_discount_basket_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_coupon_basket_rate
+		dataType: double
+		lineageTag: 7a4f25a9-a6e9-4dfd-9822-d4543f1845ba
+		summarizeBy: sum
+		sourceColumn: avg_coupon_basket_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_beverage_penetration
+		dataType: double
+		lineageTag: de414c93-6bb7-4045-977d-b4c02e307763
+		summarizeBy: sum
+		sourceColumn: avg_beverage_penetration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_beverage_promo_share
+		dataType: double
+		lineageTag: 86c6ab2b-e684-4077-99c5-ea60edb97e5e
+		summarizeBy: sum
+		sourceColumn: avg_beverage_promo_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column household_share
+		dataType: double
+		lineageTag: 44ace782-8fc4-4b21-b882-89476720cc74
+		summarizeBy: sum
+		sourceColumn: household_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue_share
+		dataType: double
+		lineageTag: e2284c8a-010e-44a6-ae30-cc04d7c161ac
+		summarizeBy: sum
+		sourceColumn: revenue_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ClusterProfile = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\kmeans_cluster_profile.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"kmeans_cluster_id", Int64.Type}, {"kmeans_segment", type text}, {"household_count", Int64.Type}, {"total_revenue", type number}, {"avg_recency_days", type number}, {"avg_frequency_baskets", type number}, {"avg_monetary_value", type number}, {"avg_basket_value", type number}, {"avg_active_weeks", type number}, {"avg_purchase_gap_days", type number}, {"avg_category_breadth", type number}, {"avg_discount_basket_rate", type number}, {"avg_coupon_basket_rate", type number}, {"avg_beverage_penetration", type number}, {"avg_beverage_promo_share", type number}, {"household_share", type number}, {"revenue_share", type number}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

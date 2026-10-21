@@ -1,0 +1,12 @@
+cohort_label,cohort_size,left_censored_cohort,small_cohort_flag,overview_max_observable_age
+P00,529,True,False,23
+P01,546,False,False,22
+P02,687,False,False,21
+P03,729,False,False,20
+P04,2,False,True,19
+P05,1,False,True,18
+P07,2,False,True,16
+P09,1,False,True,14
+P14,1,False,True,9
+P20,1,False,True,3
+P22,1,False,True,1

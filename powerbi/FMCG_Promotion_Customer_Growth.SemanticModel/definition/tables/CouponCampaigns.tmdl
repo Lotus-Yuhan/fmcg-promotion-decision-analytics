@@ -1,0 +1,159 @@
+table CouponCampaigns
+	lineageTag: b233e675-4a08-4a80-9778-9eb951a4241e
+
+	column campaign
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c9f761b-23e6-4bf2-acdb-1fba0bfcdb3e
+		summarizeBy: sum
+		sourceColumn: campaign
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_type
+		dataType: string
+		lineageTag: f3beea3f-a701-479c-b53d-b9ca756fca21
+		summarizeBy: none
+		sourceColumn: campaign_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column targeted_households
+		dataType: int64
+		formatString: 0
+		lineageTag: c16f64d7-56e7-4901-a7e4-eeefbe02136f
+		summarizeBy: sum
+		sourceColumn: targeted_households
+
+		annotation SummarizationSetBy = Automatic
+
+	column household_campaign_exposures
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e5a6414-4c5f-417d-b021-a078c6894547
+		summarizeBy: sum
+		sourceColumn: household_campaign_exposures
+
+		annotation SummarizationSetBy = Automatic
+
+	column redeeming_households
+		dataType: int64
+		formatString: 0
+		lineageTag: 294bd10a-f41c-47e5-a6f0-b645c2d83e59
+		summarizeBy: sum
+		sourceColumn: redeeming_households
+
+		annotation SummarizationSetBy = Automatic
+
+	column redemption_transactions
+		dataType: int64
+		formatString: 0
+		lineageTag: 15898c77-6f87-44cb-aaba-5e93b7110b2b
+		summarizeBy: sum
+		sourceColumn: redemption_transactions
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_day
+		dataType: int64
+		formatString: 0
+		lineageTag: bed50dbc-02ec-4e52-bd63-083c2661132c
+		summarizeBy: sum
+		sourceColumn: start_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_day
+		dataType: int64
+		formatString: 0
+		lineageTag: b5dc43d0-aa0b-4ec2-966b-1594d0e77573
+		summarizeBy: sum
+		sourceColumn: end_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_upcs_defined
+		dataType: int64
+		formatString: 0
+		lineageTag: 45af1ad2-20fe-42af-89f3-4972502ec4af
+		summarizeBy: sum
+		sourceColumn: coupon_upcs_defined
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_product_mapping_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 37be2511-ef4f-49c9-bded-7d8ead853adb
+		summarizeBy: sum
+		sourceColumn: coupon_product_mapping_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_products_covered
+		dataType: int64
+		formatString: 0
+		lineageTag: bd22792e-184a-4b7b-9385-51c384510561
+		summarizeBy: sum
+		sourceColumn: coupon_products_covered
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_duration_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 21790206-421a-4e22-8576-0060fdc32803
+		summarizeBy: sum
+		sourceColumn: campaign_duration_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_household_redemption_penetration
+		dataType: double
+		lineageTag: f767d89b-47c9-4d6c-8946-1481622e7b14
+		summarizeBy: sum
+		sourceColumn: target_household_redemption_penetration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column redemption_transactions_per_100_targets
+		dataType: double
+		lineageTag: 56eb9755-dcea-420e-b46a-79b945988216
+		summarizeBy: sum
+		sourceColumn: redemption_transactions_per_100_targets
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evidence_type
+		dataType: string
+		lineageTag: c5480c74-3b62-4c69-908c-465b5220ae03
+		summarizeBy: none
+		sourceColumn: evidence_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column denominator_note
+		dataType: string
+		lineageTag: 64fdab57-4db5-4da2-abcc-461a4401de3e
+		summarizeBy: none
+		sourceColumn: denominator_note
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CouponCampaigns = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\coupon_campaign_performance.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"campaign", Int64.Type}, {"campaign_type", type text}, {"targeted_households", Int64.Type}, {"household_campaign_exposures", Int64.Type}, {"redeeming_households", Int64.Type}, {"redemption_transactions", Int64.Type}, {"start_day", Int64.Type}, {"end_day", Int64.Type}, {"coupon_upcs_defined", Int64.Type}, {"coupon_product_mapping_rows", Int64.Type}, {"coupon_products_covered", Int64.Type}, {"campaign_duration_days", Int64.Type}, {"target_household_redemption_penetration", type number}, {"redemption_transactions_per_100_targets", type number}, {"evidence_type", type text}, {"denominator_note", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

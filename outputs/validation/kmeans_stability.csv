@@ -1,0 +1,4 @@
+stability_test,value,threshold,passed,notes
+random_seed_pairwise_ari_mean,0.9963,0.9,True,"K=3; seeds=[11, 29, 47, 71, 97]"
+random_seed_pairwise_ari_min,0.9929,0.85,True,"K=3; seeds=[11, 29, 47, 71, 97]"
+80pct_vs_full_window_ari,0.6905,0.6,True,cutoff_day=568; common_households=2498; moderate stability threshold

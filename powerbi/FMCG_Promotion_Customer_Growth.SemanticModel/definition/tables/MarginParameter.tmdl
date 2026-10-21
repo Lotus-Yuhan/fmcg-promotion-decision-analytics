@@ -1,0 +1,38 @@
+table MarginParameter
+	lineageTag: 176a3bca-37a3-4618-81f7-44368ce636fc
+
+	column label
+		dataType: string
+		lineageTag: 34b870c3-328e-4b43-8a5d-11a75b686a38
+		summarizeBy: none
+		sourceColumn: label
+		sortByColumn: margin_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column margin_value
+		dataType: double
+		lineageTag: 4533c01d-62ac-4a04-81f9-7cfcd2299077
+		summarizeBy: sum
+		sourceColumn: margin_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margin_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 09c4b147-81f7-40f7-b9f4-f3e2617d61b6
+		summarizeBy: sum
+		sourceColumn: margin_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MarginParameter = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [label = text, margin_value = number, margin_sort = Int64.Type], {{"30% (Default)", 0.29999999999999999, 0}, {"20%", 0.20000000000000001, 1}, {"40%", 0.40000000000000002, 2}})
+				in
+					Source

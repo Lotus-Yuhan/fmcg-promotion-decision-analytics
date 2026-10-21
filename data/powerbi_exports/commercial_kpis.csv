@@ -1,0 +1,18 @@
+kpi_name,kpi_value,kpi_unit,kpi_category
+Total Revenue (All Categories),8057463.08,USD,Revenue
+Beverage Revenue,661332.8700000001,USD,Revenue
+Beverage Units Sold,310294.0,units,Revenue
+Beverage Avg Selling Price,2.2458227159711552,USD/unit,Revenue
+Carbonated Soft Drinks Revenue Share of Beverages,59.201398835657436,%,Mix
+Beverage Promo Revenue %,63.616470477265096,%,Promo
+Beverage Non-Promo Revenue %,36.38352952273489,%,Promo
+"Mean Promotion Lift (Beverages, Unit-Weighted)",1.93703394177569,ratio,Promo
+Median Promotion Lift (Beverages),0.9482853223593966,ratio,Promo
+Coupon Redemption Rate,1.8611298455214051,%,Promo
+Beverage Repeat Purchase Rate (% of Households),98.91435464414958,%,Customer
+Avg Basket Value (All Categories),29.14260166953603,USD,Customer
+Avg Beverage Basket Value,5.705769071488965,USD,Customer
+Revenue per Beverage Household,265.9159107358263,USD,Customer
+Units per Beverage Household,124.76638520305589,units,Customer
+High-Value Customer Share (% of Beverage HHs),25.010052271813432,%,Customer
+Promo-Sensitive Customer Share (% of Beverage HHs),62.48492159227985,%,Customer

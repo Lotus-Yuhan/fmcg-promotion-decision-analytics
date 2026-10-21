@@ -1,0 +1,22 @@
+metric,value,ci_low,ci_high,std_error,p_value,unit
+eligible_products,326.0,,,,,count
+candidate_isolated_events,23224.0,,,,,count
+matched_events,423.0,,,,,count
+matched_products,139.0,,,,,count
+matched_categories,3.0,,,,,count
+mean_match_distance,0.6351206801260008,,,,,standardised distance
+max_abs_smd_after_matching,0.0987124022792142,,,,,absolute SMD
+did_incremental_units_per_event,0.3611111111111111,0.13737312177458444,0.6533696537678207,0.1342239030071232,0.007137419291897702,units
+did_incremental_units_pct,0.44992636229749633,0.1711600309592024,0.8140658719993761,0.1672362620677853,0.007137419291897702,share of treated pre mean
+did_incremental_revenue_per_event,0.5466784869976361,0.18836434737569063,0.9792445917913255,0.2082461085156006,0.008660931777715318,dollars
+did_incremental_revenue_pct,0.4464986508208514,0.15384623497423217,0.7997962229311811,0.17008462689205903,0.008660931777715318,share of treated pre mean
+winsorized_did_units_per_event,0.2535165484633568,,,,,units; 2.5/97.5 pct winsorisation
+winsorized_did_revenue_per_event,0.3003735224586288,,,,,dollars; 2.5/97.5 pct winsorisation
+strict_distance_event_count,324.0,,,,,count; match distance <=1
+strict_distance_did_units,0.2330246913580247,0.07278804543815363,0.38701947518673496,,,units; match distance <=1
+same_product_control_events,3.0,,,,,count
+same_store_control_events,5.0,,,,,count
+same_category_control_events,415.0,,,,,count
+pretrend_slope_p_value,0.44238938502513064,,,,,p-value
+preperiod_placebo_units,0.030732860520094565,-0.006064646464646466,0.06801254803655622,,,units
+preperiod_placebo_p_value,0.335447751367975,,,,,p-value

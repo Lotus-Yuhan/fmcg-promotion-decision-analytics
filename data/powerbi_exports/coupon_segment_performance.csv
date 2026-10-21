@@ -1,0 +1,12 @@
+segment_dimension,segment_name,targeted_households,household_campaign_exposures,redeemed_household_campaigns,redemption_transactions,redemption_penetration,redemptions_per_100_exposures,evidence_type
+kmeans_segment,Developing Occasional,481,1065,44,107,0.04131455399061033,10.046948356807512,observed_behavior
+kmeans_segment,Dormant Low-Value,11,12,0,0,0.0,0.0,observed_behavior
+kmeans_segment,High-Value Frequent,1092,6131,845,2211,0.1378241722394389,36.062632523242534,observed_behavior
+rfm_segment,At-Risk High-Value,212,1034,90,202,0.08704061895551257,19.535783365570598,observed_behavior
+rfm_segment,Big Spenders,133,547,62,170,0.113345521023766,31.078610603290677,observed_behavior
+rfm_segment,Champions,496,3219,506,1393,0.15719167443305374,43.27430879155017,observed_behavior
+rfm_segment,Hibernating,111,169,6,12,0.03550295857988166,7.100591715976331,observed_behavior
+rfm_segment,Loyal,294,1529,194,474,0.12688031393067364,31.000654022236755,observed_behavior
+rfm_segment,Needs Attention,228,500,17,35,0.034,7.0,observed_behavior
+rfm_segment,New / Low-Frequency,8,13,1,1,0.07692307692307693,7.6923076923076925,observed_behavior
+rfm_segment,Promising,102,197,13,31,0.06598984771573604,15.736040609137056,observed_behavior

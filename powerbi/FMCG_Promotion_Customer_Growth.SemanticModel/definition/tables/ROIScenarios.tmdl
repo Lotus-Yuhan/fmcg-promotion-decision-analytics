@@ -1,0 +1,157 @@
+table ROIScenarios
+	lineageTag: fc211dbe-18c1-4071-b6b8-35a1f88d0928
+
+	column scenario_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 756c3718-c781-46eb-aa85-9222730780af
+		summarizeBy: sum
+		sourceColumn: scenario_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column effect_case
+		dataType: string
+		lineageTag: 6a95d5f1-e149-4e68-9d44-ed238bef0bf6
+		summarizeBy: none
+		sourceColumn: effect_case
+
+		annotation SummarizationSetBy = Automatic
+
+	column panel_incremental_revenue_per_event
+		dataType: double
+		lineageTag: 90353c96-652a-427f-88ee-fcc65c391205
+		summarizeBy: sum
+		sourceColumn: panel_incremental_revenue_per_event
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column assumed_panel_to_total_multiplier
+		dataType: int64
+		formatString: 0
+		lineageTag: 267b4cf3-a0fd-470b-ba74-86835a7457cd
+		summarizeBy: sum
+		sourceColumn: assumed_panel_to_total_multiplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column assumed_gross_margin_rate
+		dataType: double
+		lineageTag: 8eb08c12-000c-48cb-91dc-05c41dcfe99e
+		summarizeBy: sum
+		sourceColumn: assumed_gross_margin_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column assumed_execution_cost_per_event
+		dataType: double
+		lineageTag: 279cacf1-3e55-4cc0-9042-0305b6b4a367
+		summarizeBy: sum
+		sourceColumn: assumed_execution_cost_per_event
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column assumed_budget
+		dataType: double
+		lineageTag: 9469dbdb-37b4-4d8a-852d-0542086e06fa
+		summarizeBy: sum
+		sourceColumn: assumed_budget
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column events_funded
+		dataType: int64
+		formatString: 0
+		lineageTag: 93f9a499-2983-4754-935b-38648d5a75d9
+		summarizeBy: sum
+		sourceColumn: events_funded
+
+		annotation SummarizationSetBy = Automatic
+
+	column projected_incremental_revenue
+		dataType: double
+		lineageTag: d78aa668-28ab-49de-963d-b737e7213889
+		summarizeBy: sum
+		sourceColumn: projected_incremental_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column projected_incremental_gross_profit
+		dataType: double
+		lineageTag: d66e6ec4-7d1f-48fe-a19e-b9a78e64014b
+		summarizeBy: sum
+		sourceColumn: projected_incremental_gross_profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column projected_net_contribution
+		dataType: double
+		lineageTag: c89a34ec-3bd9-4a64-8403-a8a09bc43cd0
+		summarizeBy: sum
+		sourceColumn: projected_net_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scenario_roi
+		dataType: double
+		lineageTag: 02670205-cd17-4c37-a3ac-902069fa2f8a
+		summarizeBy: sum
+		sourceColumn: scenario_roi
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column break_even_panel_to_total_multiplier
+		dataType: double
+		lineageTag: 0828a763-d7a3-498b-a741-674be8d8b094
+		summarizeBy: sum
+		sourceColumn: break_even_panel_to_total_multiplier
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evidence_type
+		dataType: string
+		lineageTag: 798692b5-338b-4e80-8615-6ad122545e76
+		summarizeBy: none
+		sourceColumn: evidence_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column decision_warning
+		dataType: string
+		lineageTag: a3360216-dc8d-4d35-a2f6-be9c93677fbf
+		summarizeBy: none
+		sourceColumn: decision_warning
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ROIScenarios = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\roi_assumption_scenarios.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"scenario_id", Int64.Type}, {"effect_case", type text}, {"panel_incremental_revenue_per_event", type number}, {"assumed_panel_to_total_multiplier", Int64.Type}, {"assumed_gross_margin_rate", type number}, {"assumed_execution_cost_per_event", type number}, {"assumed_budget", type number}, {"events_funded", Int64.Type}, {"projected_incremental_revenue", type number}, {"projected_incremental_gross_profit", type number}, {"projected_net_contribution", type number}, {"scenario_roi", type number}, {"break_even_panel_to_total_multiplier", type number}, {"evidence_type", type text}, {"decision_warning", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

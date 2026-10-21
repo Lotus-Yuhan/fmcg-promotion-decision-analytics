@@ -1,0 +1,60 @@
+table CohortOverview
+	lineageTag: 011c4c4c-c380-4ca0-8347-12205f7a6153
+
+	column cohort_label
+		dataType: string
+		lineageTag: 7cb15559-9d91-43c2-ab5c-45f35d079399
+		summarizeBy: none
+		sourceColumn: cohort_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_size
+		dataType: int64
+		formatString: 0
+		lineageTag: d30b01fe-9d50-4658-867c-4196dd3719f8
+		summarizeBy: none
+		sourceColumn: cohort_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column left_censored_cohort
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9cb8e63f-35b2-455e-a422-4866d7bb8090
+		summarizeBy: none
+		sourceColumn: left_censored_cohort
+
+		annotation SummarizationSetBy = Automatic
+
+	column small_cohort_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 60c73749-ff9d-407d-8be3-dc5fabf7bbcd
+		summarizeBy: none
+		sourceColumn: small_cohort_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column overview_max_observable_age
+		dataType: int64
+		formatString: 0
+		lineageTag: 17eee7ce-3dc4-42e8-bd08-5a8e5208a917
+		summarizeBy: none
+		sourceColumn: overview_max_observable_age
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CohortOverview = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\cohort_overview.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"cohort_label", type text}, {"cohort_size", Int64.Type}, {"left_censored_cohort", type logical}, {"small_cohort_flag", type logical}, {"overview_max_observable_age", Int64.Type}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

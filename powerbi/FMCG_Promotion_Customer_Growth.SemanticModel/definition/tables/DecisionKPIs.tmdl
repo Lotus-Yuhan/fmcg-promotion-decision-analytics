@@ -1,0 +1,58 @@
+table DecisionKPIs
+	lineageTag: 4f2f4f7e-cb3c-42aa-b431-ea9a73e649fa
+
+	column metric
+		dataType: string
+		lineageTag: e96b5fc0-c127-4ccd-9174-577f1dbb702d
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: 9788b1b3-91e4-4003-a26c-fe24a521527e
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: 320a27e8-365b-40c1-a8ab-a756441555e2
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column evidence_type
+		dataType: string
+		lineageTag: 12c42311-85db-4e56-82b9-452c3d7d38d3
+		summarizeBy: none
+		sourceColumn: evidence_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column definition
+		dataType: string
+		lineageTag: 035d3b08-d713-4c29-8655-0a998e15f940
+		summarizeBy: none
+		sourceColumn: definition
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DecisionKPIs = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\decision_kpis.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"metric", type text}, {"value", type number}, {"unit", type text}, {"evidence_type", type text}, {"definition", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,4 @@
+kmeans_cluster_id,kmeans_segment,household_count,total_revenue,avg_recency_days,avg_frequency_baskets,avg_monetary_value,avg_basket_value,avg_active_weeks,avg_purchase_gap_days,avg_category_breadth,avg_discount_basket_rate,avg_coupon_basket_rate,avg_beverage_penetration,avg_beverage_promo_share,household_share,revenue_share
+0,High-Value Frequent,1129,6362533.23,6.02,189.37,5635.55,34.11,72.55,5.22,151.79,0.8561,0.0757,0.4408,0.6302,0.4516,0.7896
+2,Developing Occasional,967,1551114.56,22.33,56.95,1604.05,31.87,37.62,15.23,101.91,0.8495,0.0485,0.435,0.6388,0.3868,0.1925
+1,Dormant Low-Value,404,143815.29,87.97,18.86,355.98,24.06,14.09,54.64,46.47,0.7942,0.0295,0.3644,0.628,0.1616,0.0178

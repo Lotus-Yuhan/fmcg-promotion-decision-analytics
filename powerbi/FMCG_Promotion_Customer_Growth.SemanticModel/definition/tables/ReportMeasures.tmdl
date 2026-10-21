@@ -1,0 +1,175 @@
+table ReportMeasures
+	lineageTag: cb957e7c-182c-4aa0-a1c9-36c95ca15e7a
+
+	measure 'Total Store Sales' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "total_store_observed_sales")
+		formatString: $#,##0
+		lineageTag: ecd7d632-39cd-4b93-8e3b-e65fd129edb4
+
+	measure 'Total Store Sales KPI' = FORMAT(CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "total_store_observed_sales") / 1000000, "$0.0", "en-US") & "M"
+		lineageTag: 17493e49-7313-44c0-95b7-98d8a9a59f2e
+
+	measure 'Beverage Sales' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "beverage_observed_sales")
+		formatString: $#,##0
+		lineageTag: 4af85d02-63e3-4be8-b47b-fa01d9d55c80
+
+	measure 'Beverage Sales KPI' = FORMAT(CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "beverage_observed_sales") / 1000, "$0", "en-US") & "K"
+		lineageTag: 576c5cee-aeb3-4226-a598-8ac2033e8b79
+
+	measure 'Beverage Share' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "beverage_share_of_store_sales")
+		formatString: 0.0%
+		lineageTag: 1067235d-b12e-4ddd-8f9a-02ccc51a4d8e
+
+	measure 'Coupon Redemption' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "target_household_coupon_redemption_penetration")
+		formatString: 0.0%
+		lineageTag: ded52bcb-c7f6-4565-bce8-33402ed4d30e
+
+	measure 'Incremental Revenue per Event' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "incremental_revenue_per_merchandising_event")
+		formatString: $0.00
+		lineageTag: eae940e7-854e-49b5-a5b4-34722ca639a2
+
+	measure 'Incremental Units per Event' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "incremental_units_per_merchandising_event")
+		formatString: 0.000
+		lineageTag: 2c17bd88-781e-422b-a9dc-64914f491fb2
+
+	measure 'Matched Events' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "matched_promotion_events")
+		formatString: #,0
+		lineageTag: bcd422c5-ae50-4ea1-8d6b-178bc393c42d
+
+	measure 'High Value Household Share' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "high_value_frequent_household_share")
+		formatString: 0.0%
+		lineageTag: c46e5f9f-c778-428d-9613-4b7fd0fc15fa
+
+	measure 'High Value Revenue Share' = CALCULATE(MAX(DecisionKPIs[value]), DecisionKPIs[metric] = "high_value_frequent_revenue_share")
+		formatString: 0.0%
+		lineageTag: f292ac3d-6ffb-4175-a984-07c761c2230d
+
+	measure 'Household Count' = SUM(ClusterProfile[household_count])
+		formatString: #,0
+		lineageTag: 10e6b129-b301-40cb-8962-b9eef678275b
+
+	measure 'Household Count KPI' = FORMAT(SUM(ClusterProfile[household_count]) / 1000, "0.0", "en-US") & "K"
+		lineageTag: 2eca099a-2c36-4969-8578-6c2a62b26154
+
+	measure 'Category Sales' = SUM(CategoryScorecard[observed_sales_value])
+		formatString: $#,##0
+		lineageTag: b5c71be4-2156-4a1c-9fc3-e5add5f15ab1
+
+	measure 'Category Sales Share' = SUM(CategoryScorecard[sales_contribution])
+		formatString: 0.0%
+		lineageTag: 9d3f4b4f-1f79-4abe-b933-6e8faf640fdc
+
+	measure 'Segment Household Share' = SUM(ClusterProfile[household_share])
+		formatString: 0.0%
+		lineageTag: ac444b2b-a2d5-46c1-82df-3494983bf927
+
+	measure 'Segment Revenue Share' = SUM(ClusterProfile[revenue_share])
+		formatString: 0.0%
+		lineageTag: 0c462e02-3581-4b88-88da-50c070e02170
+
+	measure 'Weighted Customer Retention' = DIVIDE(CALCULATE(SUM(CohortRetention[active_households]), CohortRetention[comparison_eligible] = TRUE(), CohortRetention[left_censored_cohort] = FALSE()), CALCULATE(SUM(CohortRetention[cohort_size]), CohortRetention[comparison_eligible] = TRUE(), CohortRetention[left_censored_cohort] = FALSE()))
+		formatString: 0.0%
+		lineageTag: 8dbff8c5-27cb-4b9f-80be-438b0b605b42
+
+	measure 'Event Study Units' = AVERAGE(PromotionEventStudy[did_units])
+		formatString: 0.000
+		lineageTag: c580e28b-0afc-472a-a11b-69813db05804
+
+	measure 'Category DID Units' = IF(SELECTEDVALUE(CategoryScorecard[causal_evidence_status]) = "matched_did_reportable", AVERAGE(CategoryScorecard[did_units]))
+		formatString: 0.000
+		lineageTag: fbbd78dd-92d0-4216-8ff3-ade241388de9
+
+	measure 'Pre-trend p-value' = CALCULATE(MAX(PromotionSummary[value]), PromotionSummary[metric] = "pretrend_slope_p_value")
+		formatString: 0.000
+		lineageTag: dd2c60f8-26d4-452b-ab3c-d84ec2d49e7e
+
+	measure 'Incremental Units Standard Error' = CALCULATE(MAX(PromotionSummary[std_error]), PromotionSummary[metric] = "did_incremental_units_per_event")
+		formatString: 0.000
+		lineageTag: dceb5b45-4f7b-430b-b12b-6e19c0e1f220
+
+	measure 'Incremental Units p-value' = CALCULATE(MAX(PromotionSummary[p_value]), PromotionSummary[metric] = "did_incremental_units_per_event")
+		formatString: 0.000
+		lineageTag: 4c10e373-5b13-4542-9615-6e5cd268c354
+
+	measure 'Incremental Units 95% CI' = VAR Lower = CALCULATE(MAX(PromotionSummary[ci_low]), PromotionSummary[metric] = "did_incremental_units_per_event") VAR Upper = CALCULATE(MAX(PromotionSummary[ci_high]), PromotionSummary[metric] = "did_incremental_units_per_event") RETURN "[" & FORMAT(Lower, "0.000", "en-US") & ", " & FORMAT(Upper, "0.000", "en-US") & "]"
+		lineageTag: b8a18632-4e82-4316-bff6-43622fc32e6c
+
+	measure 'Placebo P Value' = CALCULATE(MAX(PromotionSummary[value]), PromotionSummary[metric] = "preperiod_placebo_p_value")
+		formatString: 0.000
+		lineageTag: ffba35b8-6bce-479e-b794-e49f7a00b5ef
+
+	measure 'KMeans Coupon Penetration' = IF(SELECTEDVALUE(CouponSegments[segment_dimension]) = "kmeans_segment", AVERAGE(CouponSegments[redemption_penetration]))
+		formatString: 0.0%
+		lineageTag: 389199ec-6621-46e9-ab9d-3eb39a33e3b7
+
+	measure 'Campaign Penetration' = AVERAGE(CouponCampaigns[target_household_redemption_penetration])
+		formatString: 0.0%
+		lineageTag: c6c89eb0-d7ae-4577-b87f-64430f0facf6
+
+	measure 'Selected Effect' = SELECTEDVALUE(ScenarioEffect[effect_value], 0.5466784869976361)
+		formatString: $0.000
+		lineageTag: e80e4a62-4d16-4661-8557-df62758a3537
+
+	measure 'Selected Multiplier' = SELECTEDVALUE(MultiplierParameter[multiplier_value], 10)
+		formatString: 0.0x
+		lineageTag: 8a02270e-c9a4-4a25-b662-4af2a27d1853
+
+	measure 'Selected Gross Margin' = SELECTEDVALUE(MarginParameter[margin_value], 0.30)
+		formatString: 0.0%
+		lineageTag: 37457fea-a878-45cd-b968-b1edc42efbc0
+
+	measure 'Selected Cost per Event' = SELECTEDVALUE(CostParameter[cost_value], 5)
+		formatString: $0.00
+		lineageTag: 7e63359d-9f38-4431-a913-9cc6d8321052
+
+	measure 'Selected Budget' = SELECTEDVALUE(BudgetParameter[budget_value], 1000)
+		formatString: $#,##0
+		lineageTag: 19b35dc9-caeb-4038-911f-1378151d030f
+
+	measure 'Events Funded' = INT(DIVIDE([Selected Budget], [Selected Cost per Event]))
+		formatString: #,0
+		lineageTag: 9c4b48ce-5319-438e-9b60-8dadf5f6d7e5
+
+	measure 'Projected Incremental Revenue' = [Events Funded] * [Selected Effect] * [Selected Multiplier]
+		formatString: $#,##0.00
+		lineageTag: 0a67496a-3d4c-4bbc-a723-a7b1adbc5089
+
+	measure 'Selected Net Contribution' = [Projected Incremental Revenue] * [Selected Gross Margin] - [Selected Budget]
+		formatString: $#,##0.00;-$#,##0.00
+		lineageTag: 87917f63-f86b-4ab4-86ec-e3bf07983cbb
+
+	measure 'Selected Scenario ROI' = DIVIDE([Selected Net Contribution], [Selected Budget])
+		formatString: 0.0%;-0.0%
+		lineageTag: 644946fa-3e95-4472-b419-b7eb121f8748
+
+	measure 'Selected Break-even Multiplier' = DIVIDE([Selected Cost per Event], [Selected Effect] * [Selected Gross Margin])
+		formatString: 0.0x
+		lineageTag: 9814e540-35d1-4886-aa4e-7903f2ddd7ad
+
+	measure 'Sensitivity ROI' = VAR AxisMultiplier = SELECTEDVALUE(MultiplierAxis[axis_multiplier]) VAR Revenue = [Events Funded] * [Selected Effect] * AxisMultiplier VAR Net = Revenue * [Selected Gross Margin] - [Selected Budget] RETURN DIVIDE(Net, [Selected Budget])
+		formatString: 0.0%;-0.0%
+		lineageTag: 9dbd840c-0ce3-48b5-b093-6d4c93a5320d
+
+	measure 'Zero ROI' = 0
+		formatString: 0.0%
+		lineageTag: 1b504108-e8a9-483c-a0a1-8865b428a1c7
+
+	measure 'Scenario Value Color' = IF([Selected Scenario ROI] < 0, "#B91C1C", "#15803D")
+		lineageTag: 1beb5a04-a485-4343-a81f-0c2d3579ad30
+
+	measure 'Net Contribution Color' = IF([Selected Net Contribution] < 0, "#B91C1C", "#15803D")
+		lineageTag: 7a960bea-a12b-4635-92e4-b0dfa5db4b79
+
+	column MeasureKey
+		dataType: int64
+		isHidden
+		lineageTag: 414a4757-1896-45ae-8491-5d4fdda04cea
+		summarizeBy: none
+		sourceColumn: MeasureKey
+
+	partition ReportMeasures = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [MeasureKey = Int64.Type], {{1}})
+				in
+					Source

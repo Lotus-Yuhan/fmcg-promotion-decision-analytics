@@ -1,0 +1,3 @@
+relationship AutoDetected_23805271-886f-4dab-adc1-fe73cb30bb36
+	fromColumn: CohortRetention.cohort_label
+	toColumn: CohortOverview.cohort_label

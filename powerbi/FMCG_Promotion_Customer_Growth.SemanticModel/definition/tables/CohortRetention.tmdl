@@ -1,0 +1,154 @@
+table CohortRetention
+	lineageTag: 3754ed21-de27-48be-855d-400d6ce885f6
+
+	column cohort_period
+		dataType: int64
+		formatString: 0
+		lineageTag: 9688cabd-4276-448a-b75e-a3a4ccd9824c
+		summarizeBy: sum
+		sourceColumn: cohort_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_age
+		dataType: int64
+		formatString: 0
+		lineageTag: b5caab70-0de5-40b9-a18d-5c7281f6513e
+		summarizeBy: sum
+		sourceColumn: cohort_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_period
+		dataType: int64
+		formatString: 0
+		lineageTag: 79d38280-5d54-45fb-8b21-6f3a89e85860
+		summarizeBy: sum
+		sourceColumn: activity_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_observable_age
+		dataType: int64
+		formatString: 0
+		lineageTag: ca5f1d25-961b-4c30-966a-79e6e4c0c8b2
+		summarizeBy: sum
+		sourceColumn: max_observable_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_size
+		dataType: int64
+		formatString: 0
+		lineageTag: c8c7c14a-abc4-4d60-8a52-31950fbf6761
+		summarizeBy: sum
+		sourceColumn: cohort_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_households
+		dataType: int64
+		formatString: 0
+		lineageTag: 50f9dd08-8fe0-4c07-b0bc-ff8487666d35
+		summarizeBy: sum
+		sourceColumn: active_households
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_period_revenue
+		dataType: double
+		lineageTag: 11e16220-f56e-476f-9cbc-1b89efcec7e2
+		summarizeBy: sum
+		sourceColumn: cohort_period_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cohort_period_baskets
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f9614fd-001c-4b65-a017-12afc3a6a44d
+		summarizeBy: sum
+		sourceColumn: cohort_period_baskets
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_initial_revenue
+		dataType: double
+		lineageTag: 1160f728-7ea3-40e0-a263-a41d50c6a90b
+		summarizeBy: sum
+		sourceColumn: cohort_initial_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_retention_rate
+		dataType: double
+		lineageTag: 5cdb5967-d83f-4871-bd6a-77fb3bc65d0a
+		summarizeBy: sum
+		sourceColumn: customer_retention_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue_retention_index
+		dataType: double
+		lineageTag: cc3fd374-52c9-4f67-a4c1-a2c85fcfe5ce
+		summarizeBy: sum
+		sourceColumn: revenue_retention_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column left_censored_cohort
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b0367c95-e40c-49ee-9019-213f82749cc9
+		summarizeBy: none
+		sourceColumn: left_censored_cohort
+
+		annotation SummarizationSetBy = Automatic
+
+	column small_cohort_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 18f6fa81-2138-44a1-a5b5-df595dd3fc0a
+		summarizeBy: none
+		sourceColumn: small_cohort_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column comparison_eligible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 289b7d39-3e04-4099-b30d-856a0d817edc
+		summarizeBy: none
+		sourceColumn: comparison_eligible
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_label
+		dataType: string
+		lineageTag: df426534-23d7-4de9-aad0-4b84a9d9bb37
+		summarizeBy: none
+		sourceColumn: cohort_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CohortRetention = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolderPath & "\cohort_retention_long.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"cohort_period", Int64.Type}, {"cohort_age", Int64.Type}, {"activity_period", Int64.Type}, {"max_observable_age", Int64.Type}, {"cohort_size", Int64.Type}, {"active_households", Int64.Type}, {"cohort_period_revenue", type number}, {"cohort_period_baskets", Int64.Type}, {"cohort_initial_revenue", type number}, {"customer_retention_rate", type number}, {"revenue_retention_index", type number}, {"left_censored_cohort", type logical}, {"small_cohort_flag", type logical}, {"comparison_eligible", type logical}, {"cohort_label", type text}}, "en-US")
+				in
+					#"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

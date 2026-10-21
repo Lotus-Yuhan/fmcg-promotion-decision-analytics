@@ -1,0 +1,38 @@
+table ScenarioEffect
+	lineageTag: 6f416ebc-d347-4c13-96d4-12e037071e77
+
+	column label
+		dataType: string
+		lineageTag: 10762c5e-18b3-4ba4-b3ca-c3d2006d60d8
+		summarizeBy: none
+		sourceColumn: label
+		sortByColumn: effect_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column effect_value
+		dataType: double
+		lineageTag: 974ddb7a-19b3-4fa2-9c33-e5d6c8f1c644
+		summarizeBy: sum
+		sourceColumn: effect_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column effect_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d79792f-5911-4014-8dc0-f504e7b1a5ef
+		summarizeBy: sum
+		sourceColumn: effect_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ScenarioEffect = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [label = text, effect_value = number, effect_sort = Int64.Type], {{"Base point estimate (Default)", 0.5466784869976361, 0}, {"Conservative (95% CI low)", 0.18836434737569061, 1}, {"Upside (95% CI high)", 0.97924459179132561, 2}})
+				in
+					Source

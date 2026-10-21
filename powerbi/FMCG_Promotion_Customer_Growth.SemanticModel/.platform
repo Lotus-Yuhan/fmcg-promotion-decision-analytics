@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "FMCG_Promotion_Customer_Growth"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d9157368-ccff-4a3c-9bd2-31c56f13ce7d"
+  }
+}
