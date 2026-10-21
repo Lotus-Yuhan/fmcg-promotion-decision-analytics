@@ -446,4 +446,8 @@ For full details, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 GitHub: [@Lotus-Yuhan](https://github.com/Lotus-Yuhan)
 
+LinkedIn: [Yuhan Wang](https://www.linkedin.com/in/yuhan-wang-7a5056414/)
+
+Email: [lotus99wangyuhan@gmail.com](mailto:lotus99wangyuhan@gmail.com)
+
 Target roles: Data Analyst, Business Analyst and Consumer Insights Analyst.
